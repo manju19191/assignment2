@@ -1,4 +1,4 @@
-package guest;
+package timetable;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
  
 @Entity
-public class Guest implements Serializable {
+public class TimeTable implements Serializable {
     private static final long serialVersionUID = 1L;
  
     // Persistent Fields:
@@ -23,10 +23,10 @@ public class Guest implements Serializable {
     
 
     // Constructors:
-    public Guest() {
+    public TimeTable() {
     }
  
-    public Guest(String name, String date, String venue, String time, String repFreq, String maxAttend, String c, String d) {
+    public TimeTable(String name, String date, String venue, String time, String repFreq, String maxAttend, String c, String d) {
         this.name = name;
         this.signingDate = date;
         this.venue = venue; 

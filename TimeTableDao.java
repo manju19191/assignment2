@@ -1,4 +1,4 @@
-package guest;
+package timetable;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -8,20 +8,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
  
 @Component
-public class GuestDao {
+public class TimeTableDao {
     // Injected database connection:
     @PersistenceContext private EntityManager em;
  
     // Stores a new guest:
     @Transactional
-    public void persist(Guest guest) {
-        em.persist(guest);
+    public void persist(Session session) {
+        em.persist(session);
     }
  
     // Retrieves all the guests:
-    public List<Guest> getAllGuests() {
-        TypedQuery<Guest> query = em.createQuery(
-            "SELECT g FROM Guest g ORDER BY g.id", Guest.class);
+    public List<Session> getAllTableTables() {
+        TypedQuery<Session> query = em.createQuery(
+            "SELECT g FROM Session g ORDER BY g.id", Session.class);
         return query.getResultList();
     }
 }
