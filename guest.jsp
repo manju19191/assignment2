@@ -5,105 +5,14 @@
  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+ <link rel="stylesheet" href="/resources/demos/style.css">   
  
 <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-</head>
-<body>
-<div id="wrapper">
-  <div id="header">
-    <div id="logo"><strong>TEAM CSR</strong><strong><img src="WEB-INF/snail-green-orange.png" alt="" width="64" height="59" /></strong></div>
-    <div id="nav-box">
-      <div id="toll">CONTACT US : 90093658</div>
-      <div id="nav">
-        <div id="nav-bg">
-          <ul>
-            <li><a href="home.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <div id="left-nav"></div>
-      </div>
-    </div>
-  </div>
-  <div id="content">
-    <div id="products">
-      <div class="small-box">
-        <h3 class="title">&nbsp;</h3>
-        <br />
-        <div class="product-details">
-          <p>&nbsp;</p>
-        </div>
-      </div>
-      <div class="line"></div>
-      <div class="small-box">
-        <h3 class="title">ABOUT US<a href="admin.html"></a><br />
-        </h3><div class="product-details"><br />
-          <p>HI , THIS IS A WEBSITE BY TEAM CSR .</p>
-          <p>OUR GROUP MEMBERS ARE :</p>
-          <p>FAN JIAXIONG </p>
-          <p>CHEK YI KAI</p>
-          <p>VERONICA </p>
-          <p>JASMINE HU</p>
-          <p>SHINY <br />
-          </p>
-        </div>
-      </div>
-      <div class="line"></div>
-      <div class="small-box">
-        <h3 class="title"><br />
-        </h3>
-        <div class="product-details"><br />
-          <p>&nbsp;</p>
-        </div>
-      </div>
-    </div>
-    <div id="details">
-      <div id="box-2">
-        <p id="welcome-text">&nbsp;</p>
-      </div>
-      <div class="clearboth"></div>
-    </div>
-  </div>
-  <div id="footer">COPYRIGHTED TEAM CSR</div>
-</div>
-<div align=center></div>
-
-
-      <hr><ol> 
-        <% for (Guest guest : guestDao.getAllGuests()) { %>
-            <li> <%= guest %> </li>
-        <% } %>
-        </ol><hr>
- 
-        <iframe src="http://www.objectdb.com/pw.html?spring-eclipse"
-            frameborder="0" scrolling="no" width="100%" height="30"> </iframe>
-     </body>
-
-</html>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-       <!--   <title>Create Sessions</title>
+        <title>Create Sessions</title>
     </head>
  	<h1>Create Sessions</h1>
     <body>
@@ -111,11 +20,20 @@
 		<table border="0">
 		<tr>
 		<td>Lecturer Name:</td>
-		<td><input type="text" name="name" /></td>
+		<td><select name="lectddl">
+				<option value="" >Select Lecturer</option>
+			  <option value="Dr. Liew Pak San" >Dr.Liew Pak San</option>
+			  <option value="Dr. Loh Poh Koh" >Dr. Loh Poh Koh</option>
+			  <option value="Dr. Frankie Chia" >Dr. Frankie Chia</option>
+			  <option value="Dr. Steven Wong">Dr. Steven Wong</option>
+			  <option value="Dr. Alvis Fong" >Dr. Alvis Fong</option>
+			  <option value="Dr. Keoh Sye Loong" >Dr. Keoh Sye Loong</option>
+			  <option value="Dr. Lee Hwee Hiong">Dr. Keoh Sye Loong</option>
+			</select></td>
 		</tr>
 		<tr>
 		<td>Date: </td>
-		<td><input type="text" name="date" /></td>
+		<td><input type="text" id="datepicker" name="date" /></td>
 		</tr>
 		<tr>
 		<td> Time: </td>
@@ -123,16 +41,40 @@
 		</tr>
 		<tr>
 		<td>Duration:</td>
-		<td><input type="text" name="duration" /></td>
-		</tr>
+		<td><select name="durationddl">
+			  <option value="" >Select Duration</option>
+			  <option value="1" >1 hour</option>
+			  <option value="2" >2 hour</option>
+			  <option value="3" >3 hour</option>	
+			</select></td>
+		<tr>
+		<tr>
+		<td>Venue:</td>
+		<td><select name="venueddl">
+			  <option value="" >Select Venue</option>
+			  <option value="E6" >Lab E6</option>
+			  <option value="E5 Level 5" >Lecture Hall E5</option>
+			  <option value="2" >2 hour</option>
+			</select></td>
 		<tr>
 		<td>Repeat Frequency: </td>
-		<td><input type="text" name="freq" /></td>
-		</tr>
+		<td><select name="repFreqddl">
+				<option value="" >Select Frequency</option>
+			  <option value="Weekly" >Weekly</option>
+			  <option value="Monthly" >Monthly</option>
+			  <option value="Monthly" >Yearly</option>			 
+			</select></td>
 		<tr>
 		<td>Max Attendance:</td>
-		<td><input type="text" name="max" /></td>
-		</tr>
+		<td><select name="maxAttenddll">
+			  <option value="" >Select Max Attendance</option>
+			  <option value="10" >10</option>
+			  <option value="20" >20</option>
+			  <option value="30" >30</option>	
+			  <option value="40" >40</option>	
+			  <option value="50" >50</option>			
+			  <option value="60" >60</option> 
+			</select></td>
 		<tr>
 		<td>Compulsory: </td>
 		<td><input type="radio"  name="compl" value="Yes">Yes   <input type="radio"  name="compl" value="No">No</td>
@@ -144,6 +86,32 @@
 		<td> <input type="submit" value="Add" /></td>
 		</tr>
   		</form>
+  		<br><br>
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
 
- -->
-  
+        <hr><ol> 
+        <% for (Guest guest : guestDao.getAllGuests()) { %>
+            <li> <%= guest %> </li>
+        <% } %>
+        </ol><hr>
+ 
+        <iframe src="http://www.objectdb.com/pw.html?spring-eclipse"
+            frameborder="0" scrolling="no" width="100%" height="30"> </iframe>
+     </body>
+     
+   
+    <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+ </html>

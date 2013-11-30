@@ -1,7 +1,6 @@
 package guest;
 
 import java.io.Serializable;
-import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +18,7 @@ public class Guest implements Serializable {
     private String time; 
     private String repFeq;
     private String duration;
-    private int maxAttend;
+    private String maxAttend;
     private String compulsory;
     
 
@@ -27,7 +26,7 @@ public class Guest implements Serializable {
     public Guest() {
     }
  
-    public Guest(String name, String date, String venue, String time, String repFreq, int maxAttend, String c, String d) {
+    public Guest(String name, String date, String venue, String time, String repFreq, String maxAttend, String c, String d) {
         this.name = name;
         this.signingDate = date;
         this.venue = venue; 
@@ -41,7 +40,7 @@ public class Guest implements Serializable {
     // String Representation:
     @Override
     public String toString() {
-        return name + "\t" + signingDate + "\t" + time + "\t" + duration + "\t" + repFeq + "\t" + maxAttend + "\t" + compulsory;
+        return name + "\t\t" + signingDate + "\t\t" + time + "\t\t" + duration + "\t\t" + venue + "\t" + repFeq + "\t" + maxAttend + "\t" + compulsory;
     }
 
 	public String getVenue() {
@@ -68,11 +67,11 @@ public class Guest implements Serializable {
 		this.duration = duration;
 	}
 
-	public int getMaxAttend() {
+	public String getMaxAttend() {
 		return maxAttend;
 	}
 
-	public void setMaxAttend(int maxAttend) {
+	public void setMaxAttend(String maxAttend) {
 		this.maxAttend = maxAttend;
 	}
 
