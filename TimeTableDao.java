@@ -1,11 +1,15 @@
 package timetable;
 
+
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+
  
 @Component
 public class TimeTableDao {
@@ -14,14 +18,22 @@ public class TimeTableDao {
  
     // Stores a new guest:
     @Transactional
-    public void persist(Session session) {
-        em.persist(session);
+    public void persist(TimeTable timetable) {
+        em.persist(timetable);
     }
  
     // Retrieves all the guests:
-    public List<Session> getAllTableTables() {
-        TypedQuery<Session> query = em.createQuery(
-            "SELECT g FROM Session g ORDER BY g.id", Session.class);
+    public List<TimeTable> getAllTableTables() {
+        TypedQuery<TimeTable> query = em.createQuery(
+            "SELECT g FROM TimeTable g ORDER BY g.id", TimeTable.class);
         return query.getResultList();
     }
+    
+  //Retrieves daily by repeatFreq
+    public List<TimeTable> getDailySession() {
+    	  TypedQuery<TimeTable> query = em.createQuery(
+    "SELECT g FROM TimeTable g WHERE g.signingDate ='12/02/2013' ORDER BY g.id", TimeTable.class);
+    	  return query.getResultList();
+    }
 }
+
