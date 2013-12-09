@@ -1,6 +1,7 @@
 package timetable;
 
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,13 +21,14 @@ public class TimeTable implements Serializable {
     private String duration;
     private String maxAttend;
     private String compulsory;
+    private String courseName;
     
 
     // Constructors:
     public TimeTable() {
     }
  
-    public TimeTable(String name, String date, String venue, String time, String repFreq, String maxAttend, String c, String d) {
+    public TimeTable(String name, String date, String venue, String time, String repFreq, String maxAttend, String c, String d, String course) {
         this.name = name;
         this.signingDate = date;
         this.venue = venue; 
@@ -35,18 +37,32 @@ public class TimeTable implements Serializable {
         this.maxAttend=maxAttend;
         this.compulsory = c; 
         this.duration = d;
+        this.courseName = course;
     }
  
     // String Representation:
     @Override
     public String toString() {
-        return name + "\t\t" + signingDate + "\t\t" + time + "\t\t" + duration + "\t\t" + venue + "\t" + repFeq + "\t" + maxAttend + "\t" + compulsory;
+        return name + "\t\t" + courseName +"\t\t" + signingDate + "\t\t" + time + "\t\t" + duration + "\t\t" + venue + "\t" + repFeq + "\t" + maxAttend + "\t" + compulsory;
     }
+    public String display() {
+       	 return "<tr> <td>" + name + "</td> <td>" + courseName +"</td> <td>" + venue + "</td> <td>" + signingDate + "</td> <td>" + time + "</td> <td>" + compulsory + "</td>";
+       	
+       }  
 
 	public String getVenue() {
 		return venue;
 	}
-
+	public String getName(){
+		return name; 
+	}
+	public String getCourseName(){
+		return courseName;
+	}
+	
+	public String getSigningDate(){
+		return signingDate;
+	}
 	public void setVenue(String venue) {
 		this.venue = venue;
 	}

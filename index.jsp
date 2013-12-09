@@ -15,7 +15,7 @@
 <% } %>
 
 <% if ("13AGC019U".equals(request.getParameter("userName")) && "13AGC019U".equals(request.getParameter("password"))) { %>
-<jsp:forward page="viewTimeTable.html" />
+<jsp:forward page="bookingSession.html" />
 <% } %>
 
     
@@ -29,6 +29,10 @@
 		<input type="submit" value="Submit" />
 		
 		</form>
+<%
+		
+%>		
+
 
  <% 
 if(request.getParameter("userName") != null && request.getParameter("password") != null ) {

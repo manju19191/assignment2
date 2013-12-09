@@ -9,125 +9,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>View Weekly TimeTable</title>
-<center><h1>Semester 1 TimeTable (September - December 2013)</h1></center>
-    <style type="text/css">
-    body
-    {
-        font-family: arial;
-    }
-
-    th,td
-    {
-        margin: 0;
-        text-align: center;
-        border-collapse: collapse;
-        outline: 1px solid #e3e3e3;
-    }
-
-    td
-    {
-        padding: 5px 10px;
-    }
-
-    th
-    {
-        background: #666;
-        color: white;
-        padding: 5px 10px;
-    }
-
-    td:hover
-    {
-        cursor: pointer;
-        background: #666;
-        color: white;
-    }
-    </style>
+<title>View Weekly</title>
+<center><h1>Weekly</h1></center>
 
 </head>
 <body>
-	<a href="viewTimeTable.html">Back</a>
-    <table width="80%" align="center" >
-    <div id="head_nav">
-    <tr>
-        <th>Time</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
-        <th>Friday</th>
-       
-    </tr>
-</div>  
+	<a href="viewTimeTable.html">Back</a>   <a href="/TimeTable">Logout</a> 
 
-    <tr>
-        <th>09:00 - 10:00</th>
-        
-            <td>PSD</td>
-            <td>ALG3</td>
-            <td>AP3</td>
-            <td>IS3</td>
-            <td></td>
-           
-        </div>
-    </tr>
-
-    <tr>
-        <th>10:00 - 11:00</td>
-        
-            <td>PSD</td>
-            <td>ALG3</td>
-            <td>AP3</td>
-            <td>IS3</td>
-            <td>PL3</td>
-        </div>
-    </tr>
-
-    <tr>
-        <th>11:00 - 12:00</td>
-        
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>PL3</td>
-
-        </div>
-    </tr>
-
-    <tr>
-        <th>12:00 - 13:00</td>
-        
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </div>
-    </tr>
-
-    <tr>
-        <th>13:00 - 14:00</td>
-        
-            <td>PSD</td>
-            <td>ALG3</td>
-            <td>AP3</td>
-            <td>IS3</td>
-            <td></td>
-        </div>
-    </tr>
-    
-    <tr>
-        <th>14:00 - 15:00</td>
-        
-            <td>PSD</td>
-            <td>ALG3</td>
-            <td>AP3</td>
-            <td>IS3</td>
-            <td>PL3</td>
-        </div>
-    </tr>
-</table>
+	<table border="1" >  
+      <tr>
+      <th>Course Name</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Venue </th>
+      </tr>  
+      
+      <% 
+  	Student s = new Student();
+		for (Student ss: s.getStudents()) { %>
+		<% if(ss.getStudentNo().equals("13AGC019U") && ss.getRepFreq().equals("Weekly")) { %>
+		<tr><%="<td>" +  ss.getCourseName() + "</td>   <td>" + ss.getDate() +  "</td>    <td>"+  ss.getTime() + "</td>   <td>" + ss.getDuration()+  "</td>  <td>" + ss.getVenue() + "</td>"%></tr>
+		
+		<% } } %>      
+ </table>
+ 
 </body>
 </html>

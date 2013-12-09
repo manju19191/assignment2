@@ -25,8 +25,9 @@ public class TimeTableController {
 		String duration  = request.getParameter("durationddl"); 
 		String maxAttend = request.getParameter("maxAttenddll") ;
 		String compulsory  = request.getParameter("compl"); 
+		String courseName =  request.getParameter("moduleddl"); 
 		if (name != null && signingDate != null && venue !=null && time !=null && repFeq !=null && duration !=null && maxAttend !=null && compulsory !=null)
-			timetableDao.persist(new TimeTable(name, signingDate, venue, time, repFeq, maxAttend, compulsory, duration));
+			timetableDao.persist(new TimeTable(name, signingDate, venue, time, repFeq, maxAttend, compulsory, duration, courseName));
 
 		// Prepare the result view (timeTable.jsp):
 		return new ModelAndView("timeTable.jsp", "timetableDao", timetableDao);
@@ -50,6 +51,11 @@ public class TimeTableController {
 	@RequestMapping("weeklyTT")
 	public ModelAndView viewweeklyTT(){
 		return new ModelAndView("weeklyTT.jsp", "timetableDao", timetableDao);
+	}
+	
+	@RequestMapping("bookingSession")
+	public ModelAndView bookingSession(){
+		return new ModelAndView("bookingSession.jsp", "timetableDao", timetableDao);
 	}
 
 }

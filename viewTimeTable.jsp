@@ -40,6 +40,7 @@
 						<option value="Monthly">Monthly</option>
 				</select></td>
 				<td><input type="submit" value="Submit" /> </td>
+				<td><div align="right"><a href="bookingSession.html"><button type ="button">Book Session</button></a></div></td>
 				<td><div align="right"><a href="/TimeTable"><button type ="button">Logout</button></a></div></td>
 			</tr>
 		</table>

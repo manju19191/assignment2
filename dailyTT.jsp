@@ -1,6 +1,7 @@
 <%@page contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="timetable.*"%>
+<%@ page import="java.text.DateFormat,java.util.Date, java.text.SimpleDateFormat " %>
 
 <jsp:useBean id="timetableDao" type="timetable.TimeTableDao"
 	scope="request" />
@@ -9,78 +10,32 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>View Weekly TimeTable</title>
-<center><h1>Today's TimeTable</h1></center>
-    <style type="text/css">
-    body
-    {
-        font-family: arial;
-    }
-
-    th,td
-    {
-        margin: 0;
-        text-align: center;
-        border-collapse: collapse;
-        outline: 1px solid #e3e3e3;
-    }
-
-    td
-    {
-        padding: 5px 10px;
-    }
-
-    th
-    {
-        background: #666;
-        color: white;
-        padding: 5px 10px;
-    }
-
-    td:hover
-    {
-        cursor: pointer;
-        background: #666;
-        color: white;
-    }
-    </style>
+<title>View Today</title>
+<center><h1>Today's Timetable</h1></center>
 
 </head>
 <body>
-	<a href="viewTimeTable.html">Back</a>
-    <table width="80%" align="center" >
-    <div id="head_nav">
-    <tr>
-        <th>Lecturer Name</th>
-        <th>Session</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Venue</th>
-       
-    </tr>
-</div>  
+	<a href="viewTimeTable.html">Back</a>   <a href="/TimeTable">Logout</a> 
 
-    <tr>
-        <th>Dr Liew Pak San</th>
-        
-            <td>PSD</td>
-            <td>2 December 2013</td>
-            <td>9.00 - 12.00</td>
-            <td>E5 Lecture Hall Level 3</td>
-           
-           
-        </div>
-    </tr>
-
-    <tr>
-        <th>Dr Liew Pak San</td>
-        
-            <td>PSD</td>
-            <td>2 December 2013</td>
-            <td>1300 - 1500</td>
-            <td>E6 Lab</td>
-        </div>
-    </tr>
-</table>
+	<table border="1">  
+      <tr>
+      <th>Course Name</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Duration</th>
+      <th>Venue </th>
+      </tr>  
+      
+      <% 
+  	Student s = new Student();
+      DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+      String formattedDate = df.format(new Date());
+		for (Student ss: s.getStudents()) { %>
+		<% if(ss.getStudentNo().equals("13AGC019U") && ss.getDate().equals(formattedDate)) { %>
+		<tr><%="<td>" + ss.getCourseName() + "</td>   <td>" + ss.getDate() +  "</td>    <td>"+  ss.getTime() + "</td>   <td>" + ss.getDuration()+  "</td>  <td>" + ss.getVenue() + "</td>"%></tr>
+		
+		<% } } %>   
+	</table>   
+ 
 </body>
 </html>

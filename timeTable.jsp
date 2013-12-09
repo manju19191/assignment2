@@ -35,6 +35,17 @@
 				</select></td>
 			</tr>
 			<tr>
+				<td>Module Name:</td>
+				<td><select name="moduleddl">
+						<option value="">Select Module</option>
+						<option value="PSD">PSD</option>
+						<option value="ALG3">ALG3</option>
+						<option value="AP3">AP3</option>
+						<option value="IS3">IS3</option>
+						<option value="PL3">PL3</option>
+				</select></td>
+			</tr>
+			<tr>
 				<td>Date:</td>
 				<td><input type="text" id="datepicker" name="date" /></td>
 			</tr>
@@ -70,6 +81,7 @@
 				<td>Repeat Frequency:</td>
 				<td><select name="repFreqddl">
 						<option value="">Select Frequency</option>
+						<option value="Daily">Daily</option>
 						<option value="Weekly">Weekly</option>
 						<option value="Monthly">Monthly</option>
 				</select></td>
